@@ -1,0 +1,142 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;  /* Using a modern, clean font */
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+}
+
+/* Header Styling */
+.title {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 36px;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Main Container */
+.main-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Content Box */
+.content-box {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Input Field Styling */
+.city-input {
+    padding: 12px;
+    font-size: 20px;
+    width: 60%;
+    margin: 20px;
+    border-radius: 8px;
+    border: 2px solid #3498db;
+    outline: none;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.city-input:focus {
+    border-color: #2980b9;
+}
+
+/* Weather Information Styling */
+.weather-info {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    margin: 20px auto;
+    font-size: 18px;
+    color: #34495e;
+    font-family: 'Quicksand', sans-serif;
+    animation: slideIn 1s ease-in-out;
+    text-align: left;
+}
+
+/* Specific Weather Info Blocks */
+.weather-info h4 {
+    font-size: 28px;
+    color: #2980b9;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+}
+
+.weather-info p {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.weather-info p span {
+    font-weight: bold;
+    color: #2980b9;
+}
+
+/* Slider Styling */
+.slider {
+    margin: 50px 50px;
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-text {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Animation for Weather Info */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Additional Styles for Modern Effects */
+.city-input {
+    font-family: 'Poppins', sans-serif;
+}
+
+.weather-info h4 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.weather-info p {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* Hover Effects for Weather Info */
+.weather-info:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
