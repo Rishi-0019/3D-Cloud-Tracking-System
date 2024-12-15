@@ -12,7 +12,9 @@ The **3D Cloud Tracking System** is an interactive web application that provides
 
 - **Backend**: Flask (Python web framework)
 - **Frontend**: Dash (Interactive web application framework built on top of Plotly)
+
 - **Visualization**: Plotly (3D globe visualization)
+                     Pydeck(For displaying OpenStreetMap tiles with additional weather layers)
 - **Database**: SQLite (for storing weather data)
 - **API**: OpenWeatherMap (for fetching weather and cloud data)
 - **Other Libraries**: `requests`, `datetime`, `SQLAlchemy`
@@ -22,4 +24,12 @@ The **3D Cloud Tracking System** is an interactive web application that provides
 ### Prerequisites
 
 1. **Python 3.x** installed on your machine.
-2. Basic knowledge of using the command line.
+2. An account on OpenWeatherMap to generate an API key.
+3. Basic knowledge of using the command line.
+
+
+## Designed And Developed by-
+- **Rishabh Tiwari**
+- ***Contact***: +91 9452302696
+- ***Email***: rishabhtiwari0019@gmail.com
+- ***College***: GL Bajaj Group Of Institutions, Mathura
