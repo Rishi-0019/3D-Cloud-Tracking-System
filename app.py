@@ -3,7 +3,7 @@ from dash import dcc, html
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 import requests
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -132,26 +132,34 @@ def create_3d_globe(city, cloud_data, lat, lon):
 
 # Layout of the Dash app
 app.layout = html.Div([
-    html.H1("3D Cloud Tracking and Weather Information"),
     html.Div([
-        # City Input field
-        dcc.Input(id='city-input', type='text', placeholder='Enter city name', debounce=True),
-        
-        # 3D Globe (Map)
-        dcc.Graph(id='3d-globe', config={'scrollZoom': True}),
-        
-        # Weather Information
-        html.Div(id='weather-info', style={'marginTop': '20px'})
-    ]),
-    # Slider for time-based cloud data change simulation
+        html.H1("3D Cloud Tracking and Weather Information", className='title'),
+        html.Div([
+            # City Input field with animation
+            dcc.Input(id='city-input', type='text', placeholder='Enter city name', debounce=True, className='city-input'),
+            
+            # 3D Globe (Map)
+            dcc.Graph(id='3d-globe', config={'scrollZoom': True}, className='graph'),
+        ], className='content-box'),
+            # Slider for time-based cloud data change simulation
     dcc.Slider(
         id='time-slider',
         min=0,
         max=10,
         step=1,
         marks={i: str(i) for i in range(11)},
-        value=0
-    )
+        value=0,
+        className='slider'
+    ),
+
+        html.Div(id='weather-info', className='weather-info'),
+    ], className='main-container'),
+
+
+    # Footer
+    html.Footer([
+        html.P("Designed and Developed by ©Rishabh Tiwari (Coding Ninjas)", className='footer-text')
+    ], className='footer')
 ])
 
 # Callback to update both the 3D Globe and Weather Information
@@ -195,11 +203,10 @@ def update_figure_and_weather(time_value, city_name):
 # Route to serve the frontend HTML page
 @server.route('/')
 def index():
-    return render_template('index.html')
+    return redirect('/dash/')
 
 # Run the Flask server
 if __name__ == '__main__':
     with server.app_context():
         db.create_all()  # Ensure database tables are created
     server.run(debug=True)
-
