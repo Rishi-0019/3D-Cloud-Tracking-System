@@ -20,6 +20,13 @@ The **3D Cloud Tracking System** is an interactive web application that provides
 - **Other Libraries**: `requests`, `datetime`, `SQLAlchemy`
 
 ## Setup Instructions
+3d-cloud-tracking-system/
+│
+├── app.py                     # Main Python file for running the app
+├── README.md                  # Project description and instructions
+│
+├── static/                    # Folder for static files like images, CSS, etc.
+│   │   └── styles.css         # Custom CSS for the app
 
 ### Prerequisites
 
