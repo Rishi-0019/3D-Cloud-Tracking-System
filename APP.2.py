@@ -1,10 +1,24 @@
+import os
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 import requests
+from dotenv import load_dotenv
 from flask import Flask, render_template
 from datetime import datetime
+
+load_dotenv()
+
+
+def get_api_key():
+    api_key = os.getenv("OPENWEATHER_API_KEY")
+    if not api_key:
+        raise RuntimeError(
+            "OPENWEATHER_API_KEY is not set. Add it to your .env file."
+        )
+    return api_key
+
 
 # Initialize Flask app and Dash app
 server = Flask(__name__)
@@ -13,7 +27,7 @@ app = dash.Dash(__name__, server=server, url_base_pathname='/dash/')
 # Function to fetch weather data from OpenWeatherMap API
 def get_weather_data(city):
     BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"
-    API_KEY = "your_api_key_here"
+    API_KEY = get_api_key()
 
     url = BASE_URL + "appid=" + API_KEY + "&q=" + city
     response = requests.get(url).json()
@@ -37,7 +51,7 @@ def get_weather_data(city):
 
 # Function to get latitude and longitude from city name
 def get_lat_lon(city):
-    API_KEY = 'your_api_key_here'  # Your OpenWeatherMap API Key
+    API_KEY = get_api_key()
     url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}'
 
     response = requests.get(url)
@@ -56,7 +70,7 @@ def get_cloud_data(city):
     if lat is None or lon is None:
         return None, None, None  # Return None if city coordinates are not found
     
-    api_key = 'your_api_key_here'
+    api_key = get_api_key()
     url = f'http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}'
     response = requests.get(url)
     

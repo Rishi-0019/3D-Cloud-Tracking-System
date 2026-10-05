@@ -1,0 +1,6 @@
+dash
+Flask
+Flask-SQLAlchemy
+plotly
+python-dotenv
+requests

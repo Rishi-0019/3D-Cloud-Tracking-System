@@ -34,6 +34,14 @@ The **3D Cloud Tracking System** is an interactive web application that provides
 2. An account on OpenWeatherMap to generate an API key.
 3. Basic knowledge of using the command line.
 
+### Configure the API key
+
+1. Install the dependencies with `pip install -r requirements.txt`.
+2. Copy `.env.example` to `.env`.
+3. Replace the example value with your OpenWeatherMap API key.
+4. Start the application with `python app.py`.
+
+The `.env` file is ignored by Git. Do not commit API keys or share them publicly.
 
 ## Designed And Developed by-
 - **Rishabh Tiwari**
